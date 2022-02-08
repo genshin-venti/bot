@@ -54,8 +54,8 @@ export function apply(ctx: Context) {
     const matchVenti = /(温迪)|(巴巴托斯)|(风神)|(吟游诗人)|(吹笛人)|(卖唱的)/
     if (!matchVenti.test(message)) return next()
 
-    const matchLast = /(啥)|(听不清)|(翻译)/
-    if (matchLast.test(message)) {
+    const matchGetText = /(你说啥)|(说的啥)|(听不清)|(翻译)|(文本)/
+    if (matchGetText.test(message)) {
       session.sendQueued(lastVoice.details || '欸嘿，你什么也没有听见哦')
       return next()
     }
