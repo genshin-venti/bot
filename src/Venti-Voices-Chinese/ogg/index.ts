@@ -697,12 +697,6 @@ export const data: Voice[] = [
     keys: ['跳跃', '跳'],
     audio: 'VO_ZH_Venti_Jumping_05',
   },
-  {
-    title: '跳跃',
-    details: '',
-    keys: ['跳跃', '跳'],
-    audio: 'VO_ZH_Venti_Jumping_06',
-  },
   // 尘歌壶入驻对话
   {
     title: '',
