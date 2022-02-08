@@ -11,7 +11,7 @@ export const data: Voice[] = [
     title: '初次见面...',
     details:
       '哈…睡得好香呀。欸，你好呀，旅行者，我们又见面了。嗯？不记得我了？嘿嘿，那就让我再次加入你的旅程吧。你的诗篇，值得被我这个世上最好的吟游诗人传唱！',
-    keys: ['见面', '你好'],
+    keys: ['初次见面', '见面', '你好'],
     audio: 'VO_ZH_Venti_Hello',
   },
   {
@@ -72,7 +72,7 @@ export const data: Voice[] = [
   {
     title: '晚上好…',
     details: '我还不困哦。要我陪你走走么？',
-    keys: ['晚上', '晚'],
+    keys: ['晚上', '困了'],
     audio: 'VO_ZH_Venti_Good_Evening',
   },
   {

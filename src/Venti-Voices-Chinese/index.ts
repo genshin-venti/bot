@@ -42,6 +42,15 @@ export function apply(ctx: Context) {
     const message = session.content?.trim()
     if (!message) return next()
 
+    const welcome = /欢迎入群/
+    if (welcome.test(message)) {
+      const welcomeVoice = findVoicesByKeys(['初次见面'])
+      session.sendQueued(
+        segment('audio', { file: getFileUrl(welcomeVoice[0].audio) })
+      )
+      return next()
+    }
+
     const matchVenti = /(温迪)|(巴巴托斯)|(风神)|(吟游诗人)|(吹笛人)|(卖唱的)/
     if (!matchVenti.test(message)) return next()
 
