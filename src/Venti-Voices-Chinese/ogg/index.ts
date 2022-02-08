@@ -6,7 +6,7 @@ export interface Voice {
 }
 
 export const data: Voice[] = [
-  // Story
+  // 聊天语音
   {
     title: '初次见面...',
     details:
@@ -306,7 +306,7 @@ export const data: Voice[] = [
     keys: ['突破', '风景', '欸嘿'],
     audio: 'VO_ZH_Venti_Feelings_About_Ascension_-_04',
   },
-  // Combat
+  // 战斗语音
   {
     title: '元素战技',
     details: '哟呼——',
@@ -666,12 +666,6 @@ export const data: Voice[] = [
     details: '',
     keys: ['攀爬', '爬'],
     audio: 'VO_ZH_Venti_Climbing_05',
-  },
-  {
-    title: '攀爬',
-    details: '',
-    keys: ['攀爬', '爬'],
-    audio: 'VO_ZH_Venti_Climbing_06',
   },
   {
     title: '跳跃',
