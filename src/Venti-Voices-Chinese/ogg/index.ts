@@ -448,7 +448,7 @@ export const data: Voice[] = [
   {
     title: '生命值低',
     details: '哎呀，别盯着我打呀。',
-    keys: ['生命值低'],
+    keys: ['生命值低', '盯着'],
     audio: 'VO_ZH_Venti_Low_HP_02',
   },
   {
