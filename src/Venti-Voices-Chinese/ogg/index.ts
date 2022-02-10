@@ -526,37 +526,37 @@ export const data: Voice[] = [
   {
     title: '重受击',
     details: '好粗鲁哦。',
-    keys: ['受击', '重受击', '粗鲁'],
+    keys: ['受击', '重受击', '受重击', '粗鲁'],
     audio: 'VO_ZH_Venti_Heavy_Hit_Taken_01',
   },
   {
     title: '重受击',
     details: '',
-    keys: ['受击', '重受击'],
+    keys: ['受击', '重受击', '受重击'],
     audio: 'VO_ZH_Venti_Heavy_Hit_Taken_02',
   },
   {
     title: '重受击',
     details: '',
-    keys: ['受击', '重受击'],
+    keys: ['受击', '重受击', '受重击'],
     audio: 'VO_ZH_Venti_Heavy_Hit_Taken_03',
   },
   {
     title: '重受击',
     details: '',
-    keys: ['受击', '重受击'],
+    keys: ['受击', '重受击', '受重击'],
     audio: 'VO_ZH_Venti_Heavy_Hit_Taken_04',
   },
   {
     title: '重受击',
     details: '',
-    keys: ['受击', '重受击'],
+    keys: ['受击', '重受击', '受重击'],
     audio: 'VO_ZH_Venti_Heavy_Hit_Taken_05',
   },
   {
     title: '重受击',
     details: '',
-    keys: ['受击', '重受击'],
+    keys: ['受击', '重受击', '受重击'],
     audio: 'VO_ZH_Venti_Heavy_Hit_Taken_06',
   },
   {
