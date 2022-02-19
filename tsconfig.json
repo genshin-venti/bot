@@ -4,18 +4,18 @@
     "module": "commonjs",
     "downlevelIteration": true,
     "resolveJsonModule": true,
-    "lib": ["ESNext"],
+    "lib": [
+      "ESNext"
+    ],
     "strict": true,
     "moduleResolution": "node",
     "baseUrl": ".",
     "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
   "include": [
     "src"
-  ],
+, "koishi.config.js"  ],
   "exclude": [
     "node_modules"
   ]

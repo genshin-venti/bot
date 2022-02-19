@@ -1,7 +1,7 @@
 import { Context, segment } from 'koishi'
 import { indexOf, random, shuffle } from 'lodash'
 import { join } from 'path'
-import { data, Voice } from './ogg'
+import { data, Voice } from './assets/ogg'
 
 export const name = 'venti-voice-overs'
 
@@ -32,13 +32,11 @@ export function findVoicesByKeys(keys: string[]) {
 }
 
 export function getFileUrl(filename: string) {
-  return 'file:///' + join(__dirname, 'ogg', filename + '.ogg')
+  return 'file:///' + join(__dirname, 'assets/ogg', filename + '.ogg')
 }
 
 export function apply(ctx: Context) {
   ctx.middleware((session, next) => {
-    if (!session.onebot?.canSendRecord()) return next()
-
     const message = session.content?.trim()
     if (!message) return next()
 

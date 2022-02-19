@@ -1,0 +1,11 @@
+{
+  "name": "@fenglingbot/plugin-venti-voices-chinese",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "peerDependencies": {
+    "koishi": "^4.2.1"
+  }
+}
