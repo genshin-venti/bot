@@ -18,10 +18,10 @@
   "dependencies": {
     "@fenglingbot/plugin-venti-voices-chinese": "workspace:^1.0.0",
     "@fenglingbot/plugin-waiting-for-venti": "workspace:^1.0.0",
-    "@koishijs/plugin-adapter-onebot": "^4.1.1",
+    "@koishijs/plugin-adapter-onebot": "^4.1.2",
     "@koishijs/plugin-database-sqlite": "^1.0.1",
     "@koishijs/plugin-respondent": "^5.0.0",
-    "koishi": "^4.2.2",
+    "koishi": "^4.3.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {

@@ -197,7 +197,6 @@ class WaitingListUtils {
   static async getList(ctx: Context, guildId: string) {
     return ctx.database.get(
       tableName,
-      /* @ts-ignore */
       {
         $and: [
           {
@@ -222,7 +221,6 @@ class WaitingListUtils {
     return ctx.database.eval(
       tableName,
       { $count: 'onebot' },
-      /* @ts-ignore */
       {
         $and: [
           {
