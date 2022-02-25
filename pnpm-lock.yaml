@@ -14,9 +14,9 @@ importers:
       '@koishijs/plugin-database-sqlite': ^1.0.1
       '@koishijs/plugin-respondent': ^5.0.0
       '@types/lodash': ^4.14.178
-      '@types/node': ^16.11.25
+      '@types/node': ^16.11.26
       cross-env: ^7.0.3
-      koishi: ^4.3.1
+      koishi: ^4.3.2
       lodash: ^4.17.21
       nodemon: ^2.0.15
       ts-node: ^10.5.0
@@ -24,17 +24,17 @@ importers:
     dependencies:
       '@fenglingbot/plugin-venti-voices-chinese': link:plugins/venti-voices-chinese
       '@fenglingbot/plugin-waiting-for-venti': link:plugins/waiting-for-venti
-      '@koishijs/plugin-adapter-onebot': registry.npmmirror.com/@koishijs/plugin-adapter-onebot/4.1.2_koishi@4.3.1
-      '@koishijs/plugin-database-sqlite': registry.npmmirror.com/@koishijs/plugin-database-sqlite/1.0.1_koishi@4.3.1
-      '@koishijs/plugin-respondent': registry.npmmirror.com/@koishijs/plugin-respondent/5.0.0_koishi@4.3.1
-      koishi: registry.npmmirror.com/koishi/4.3.1
+      '@koishijs/plugin-adapter-onebot': registry.npmmirror.com/@koishijs/plugin-adapter-onebot/4.1.2_koishi@4.3.2
+      '@koishijs/plugin-database-sqlite': registry.npmmirror.com/@koishijs/plugin-database-sqlite/1.0.1_koishi@4.3.2
+      '@koishijs/plugin-respondent': registry.npmmirror.com/@koishijs/plugin-respondent/5.0.0_koishi@4.3.2
+      koishi: registry.npmmirror.com/koishi/4.3.2
       lodash: registry.npmmirror.com/lodash/4.17.21
     devDependencies:
       '@types/lodash': registry.npmmirror.com/@types/lodash/4.14.178
-      '@types/node': registry.npmmirror.com/@types/node/16.11.25
+      '@types/node': registry.npmmirror.com/@types/node/16.11.26
       cross-env: registry.npmmirror.com/cross-env/7.0.3
       nodemon: registry.npmmirror.com/nodemon/2.0.15
-      ts-node: registry.npmmirror.com/ts-node/10.5.0_ad16171857a0edcfc445c7bfcf336eb6
+      ts-node: registry.npmmirror.com/ts-node/10.5.0_f94da96e4d78a751cdd66b59796b8fdd
       typescript: registry.npmmirror.com/typescript/4.5.5
 
   plugins/drift-bottle:
@@ -132,7 +132,7 @@ packages:
       - supports-color
     dev: false
 
-  registry.npmmirror.com/@koishijs/command-utils/1.0.0_koishi@4.3.1:
+  registry.npmmirror.com/@koishijs/command-utils/1.0.0_koishi@4.3.2:
     resolution: {integrity: sha512-cp0D1VtFd3fgI5b8vNcD1oyKXpmX7BSU7TSpr6rj+Dk9OpcXycrVEEJqxAUb0Vvt1/avFSZazati1qNPUlpmuQ==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/@koishijs/command-utils/-/command-utils-1.0.0.tgz}
     id: registry.npmmirror.com/@koishijs/command-utils/1.0.0
     name: '@koishijs/command-utils'
@@ -140,21 +140,21 @@ packages:
     peerDependencies:
       koishi: ^4.0.0-rc.3
     dependencies:
-      koishi: registry.npmmirror.com/koishi/4.3.1
+      koishi: registry.npmmirror.com/koishi/4.3.2
     dev: false
 
-  registry.npmmirror.com/@koishijs/core/4.3.1:
-    resolution: {integrity: sha512-LDjRuhyQNagsk0vaumJRpucAU4AGCmQnRiK+JNsCboojkH1TUN0cRyzBTb0JzNrtqA4Tj6IEdxwa+Q2ruXZD8w==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/@koishijs/core/-/core-4.3.1.tgz}
+  registry.npmmirror.com/@koishijs/core/4.3.2:
+    resolution: {integrity: sha512-Z/xnla4oneEG0WzI05ZkfZRy9bAEVkzcvpEkXk3lGbuhoY6/CIHL7eboOlPLZnICFV7GNqiHobPQJxNI4cyC1Q==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/@koishijs/core/-/core-4.3.2.tgz}
     name: '@koishijs/core'
-    version: 4.3.1
+    version: 4.3.2
     engines: {node: '>=12.0.0'}
     dependencies:
       '@koishijs/utils': registry.npmmirror.com/@koishijs/utils/5.1.2
       fastest-levenshtein: registry.npmmirror.com/fastest-levenshtein/1.0.12
-      schemastery: registry.npmmirror.com/schemastery/2.6.0
+      schemastery: registry.npmmirror.com/schemastery/3.0.0
     dev: false
 
-  registry.npmmirror.com/@koishijs/orm-utils/1.0.0_koishi@4.3.1:
+  registry.npmmirror.com/@koishijs/orm-utils/1.0.0_koishi@4.3.2:
     resolution: {integrity: sha512-Hy3ZD+jeGGp9QP+qq2D2Fq+EVnI5/YywcLu8tS7scspnzRL07PRLiU0G3dxs4PNT5vxpBfCiwmW/31sb4XrYlA==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/@koishijs/orm-utils/-/orm-utils-1.0.0.tgz}
     id: registry.npmmirror.com/@koishijs/orm-utils/1.0.0
     name: '@koishijs/orm-utils'
@@ -163,10 +163,10 @@ packages:
     peerDependencies:
       koishi: ^4.0.0-rc.3
     dependencies:
-      koishi: registry.npmmirror.com/koishi/4.3.1
+      koishi: registry.npmmirror.com/koishi/4.3.2
     dev: false
 
-  registry.npmmirror.com/@koishijs/plugin-adapter-onebot/4.1.2_koishi@4.3.1:
+  registry.npmmirror.com/@koishijs/plugin-adapter-onebot/4.1.2_koishi@4.3.2:
     resolution: {integrity: sha512-V0mPFzi+Kbp1zPVqi686KVOpptU/p3j+N4AXIBfInHk3+OBz7vxGK/qdd+34HCiNylSa0Op7AmH6ur3LEFtcOA==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/@koishijs/plugin-adapter-onebot/-/plugin-adapter-onebot-4.1.2.tgz}
     id: registry.npmmirror.com/@koishijs/plugin-adapter-onebot/4.1.2
     name: '@koishijs/plugin-adapter-onebot'
@@ -174,7 +174,7 @@ packages:
     peerDependencies:
       koishi: ^4.3.0
     dependencies:
-      koishi: registry.npmmirror.com/koishi/4.3.1
+      koishi: registry.npmmirror.com/koishi/4.3.2
       qface: registry.npmmirror.com/qface/1.2.0
       ws: registry.npmmirror.com/ws/8.5.0
     transitivePeerDependencies:
@@ -182,7 +182,7 @@ packages:
       - utf-8-validate
     dev: false
 
-  registry.npmmirror.com/@koishijs/plugin-database-sqlite/1.0.1_koishi@4.3.1:
+  registry.npmmirror.com/@koishijs/plugin-database-sqlite/1.0.1_koishi@4.3.2:
     resolution: {integrity: sha512-0AIceYU85iHINbn169zFK4PxFBo+nWjzZbmPkhn9W8JTgA2oKni9IcH9G2T6G9a7AoGDqOoM4PBg4CdaoCexqQ==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/@koishijs/plugin-database-sqlite/-/plugin-database-sqlite-1.0.1.tgz}
     id: registry.npmmirror.com/@koishijs/plugin-database-sqlite/1.0.1
     name: '@koishijs/plugin-database-sqlite'
@@ -190,14 +190,14 @@ packages:
     peerDependencies:
       koishi: ^4.2.0
     dependencies:
-      '@koishijs/orm-utils': registry.npmmirror.com/@koishijs/orm-utils/1.0.0_koishi@4.3.1
-      '@koishijs/sql-utils': registry.npmmirror.com/@koishijs/sql-utils/1.0.0_koishi@4.3.1
+      '@koishijs/orm-utils': registry.npmmirror.com/@koishijs/orm-utils/1.0.0_koishi@4.3.2
+      '@koishijs/sql-utils': registry.npmmirror.com/@koishijs/sql-utils/1.0.0_koishi@4.3.2
       better-sqlite3: registry.npmmirror.com/better-sqlite3/7.5.0
-      koishi: registry.npmmirror.com/koishi/4.3.1
+      koishi: registry.npmmirror.com/koishi/4.3.2
       sqlstring-sqlite: registry.npmmirror.com/sqlstring-sqlite/0.1.1
     dev: false
 
-  registry.npmmirror.com/@koishijs/plugin-respondent/5.0.0_koishi@4.3.1:
+  registry.npmmirror.com/@koishijs/plugin-respondent/5.0.0_koishi@4.3.2:
     resolution: {integrity: sha512-DkrN0DPnlSF+fuxYTb8w8JVB9iqT9KaZrhyx3ncq17jjZp5HVkWgR8qVm41Hms6jXa1LgDwcPfafbFHPmCU9XA==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/@koishijs/plugin-respondent/-/plugin-respondent-5.0.0.tgz}
     id: registry.npmmirror.com/@koishijs/plugin-respondent/5.0.0
     name: '@koishijs/plugin-respondent'
@@ -205,8 +205,8 @@ packages:
     peerDependencies:
       koishi: ^4.0.0-rc.3
     dependencies:
-      '@koishijs/command-utils': registry.npmmirror.com/@koishijs/command-utils/1.0.0_koishi@4.3.1
-      koishi: registry.npmmirror.com/koishi/4.3.1
+      '@koishijs/command-utils': registry.npmmirror.com/@koishijs/command-utils/1.0.0_koishi@4.3.2
+      koishi: registry.npmmirror.com/koishi/4.3.2
     dev: false
 
   registry.npmmirror.com/@koishijs/segment/1.1.1:
@@ -215,7 +215,7 @@ packages:
     version: 1.1.1
     dev: false
 
-  registry.npmmirror.com/@koishijs/sql-utils/1.0.0_koishi@4.3.1:
+  registry.npmmirror.com/@koishijs/sql-utils/1.0.0_koishi@4.3.2:
     resolution: {integrity: sha512-T5cJSIleukCP01LGMOmbpImWasBMxNUIL5E0gIVWEJ14rai2uXLLbsaLGN6EsYZxqZbkIlmY0aCzgrL81gRF4A==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/@koishijs/sql-utils/-/sql-utils-1.0.0.tgz}
     id: registry.npmmirror.com/@koishijs/sql-utils/1.0.0
     name: '@koishijs/sql-utils'
@@ -224,7 +224,7 @@ packages:
     peerDependencies:
       koishi: ^4.0.0-rc.3
     dependencies:
-      koishi: registry.npmmirror.com/koishi/4.3.1
+      koishi: registry.npmmirror.com/koishi/4.3.2
     dev: false
 
   registry.npmmirror.com/@koishijs/utils/5.1.2:
@@ -294,7 +294,7 @@ packages:
     name: '@types/accepts'
     version: 1.3.5
     dependencies:
-      '@types/node': registry.npmmirror.com/@types/node/16.11.25
+      '@types/node': registry.npmmirror.com/@types/node/16.11.26
     dev: false
 
   registry.npmmirror.com/@types/body-parser/1.19.2:
@@ -303,7 +303,7 @@ packages:
     version: 1.19.2
     dependencies:
       '@types/connect': registry.npmmirror.com/@types/connect/3.4.35
-      '@types/node': registry.npmmirror.com/@types/node/16.11.25
+      '@types/node': registry.npmmirror.com/@types/node/16.11.26
     dev: false
 
   registry.npmmirror.com/@types/connect/3.4.35:
@@ -311,7 +311,7 @@ packages:
     name: '@types/connect'
     version: 3.4.35
     dependencies:
-      '@types/node': registry.npmmirror.com/@types/node/16.11.25
+      '@types/node': registry.npmmirror.com/@types/node/16.11.26
     dev: false
 
   registry.npmmirror.com/@types/content-disposition/0.5.4:
@@ -328,7 +328,7 @@ packages:
       '@types/connect': registry.npmmirror.com/@types/connect/3.4.35
       '@types/express': registry.npmmirror.com/@types/express/4.17.13
       '@types/keygrip': registry.npmmirror.com/@types/keygrip/1.0.2
-      '@types/node': registry.npmmirror.com/@types/node/16.11.25
+      '@types/node': registry.npmmirror.com/@types/node/16.11.26
     dev: false
 
   registry.npmmirror.com/@types/express-serve-static-core/4.17.28:
@@ -336,7 +336,7 @@ packages:
     name: '@types/express-serve-static-core'
     version: 4.17.28
     dependencies:
-      '@types/node': registry.npmmirror.com/@types/node/16.11.25
+      '@types/node': registry.npmmirror.com/@types/node/16.11.26
       '@types/qs': registry.npmmirror.com/@types/qs/6.9.7
       '@types/range-parser': registry.npmmirror.com/@types/range-parser/1.2.4
     dev: false
@@ -390,7 +390,7 @@ packages:
       '@types/http-errors': registry.npmmirror.com/@types/http-errors/1.8.2
       '@types/keygrip': registry.npmmirror.com/@types/keygrip/1.0.2
       '@types/koa-compose': registry.npmmirror.com/@types/koa-compose/3.2.5
-      '@types/node': registry.npmmirror.com/@types/node/16.11.25
+      '@types/node': registry.npmmirror.com/@types/node/16.11.26
     dev: false
 
   registry.npmmirror.com/@types/koa__router/8.0.11:
@@ -413,10 +413,10 @@ packages:
     version: 1.3.2
     dev: false
 
-  registry.npmmirror.com/@types/node/16.11.25:
-    resolution: {integrity: sha512-NrTwfD7L1RTc2qrHQD4RTTy4p0CO2LatKBEKEds3CaVuhoM/+DJzmWZl5f+ikR8cm8F5mfJxK+9rQq07gRiSjQ==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/node/-/node-16.11.25.tgz}
+  registry.npmmirror.com/@types/node/16.11.26:
+    resolution: {integrity: sha512-GZ7bu5A6+4DtG7q9GsoHXy3ALcgeIHP4NnL0Vv2wu0uUB/yQex26v0tf6/na1mm0+bS9Uw+0DFex7aaKr2qawQ==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/node/-/node-16.11.26.tgz}
     name: '@types/node'
-    version: 16.11.25
+    version: 16.11.26
 
   registry.npmmirror.com/@types/qs/6.9.7:
     resolution: {integrity: sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/qs/-/qs-6.9.7.tgz}
@@ -436,15 +436,15 @@ packages:
     version: 1.13.10
     dependencies:
       '@types/mime': registry.npmmirror.com/@types/mime/1.3.2
-      '@types/node': registry.npmmirror.com/@types/node/16.11.25
+      '@types/node': registry.npmmirror.com/@types/node/16.11.26
     dev: false
 
-  registry.npmmirror.com/@types/ws/8.5.0:
-    resolution: {integrity: sha512-mTClfhq5cuGyW4jthaFuig6Q8OVfB3IRyZfN/9SCyJtiM5H0SubwM89cHoT9UngO6HyUFic88HvT1zSNLNyxWA==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/ws/-/ws-8.5.0.tgz}
+  registry.npmmirror.com/@types/ws/8.5.1:
+    resolution: {integrity: sha512-UxlLOfkuQnT2YSBCNq0x86SGOUxas6gAySFeDe2DcnEnA8655UIPoCDorWZCugcvKIL8IUI4oueUfJ1hhZSE2A==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/ws/-/ws-8.5.1.tgz}
     name: '@types/ws'
-    version: 8.5.0
+    version: 8.5.1
     dependencies:
-      '@types/node': registry.npmmirror.com/@types/node/16.11.25
+      '@types/node': registry.npmmirror.com/@types/node/16.11.26
     dev: false
 
   registry.npmmirror.com/abbrev/1.1.1:
@@ -972,7 +972,7 @@ packages:
       ast-types: registry.npmmirror.com/ast-types/0.13.4
       escodegen: registry.npmmirror.com/escodegen/1.14.3
       esprima: registry.npmmirror.com/esprima/4.0.1
-      vm2: registry.npmmirror.com/vm2/3.9.8
+      vm2: registry.npmmirror.com/vm2/3.9.9
     dev: false
 
   registry.npmmirror.com/delegates/1.0.0:
@@ -1711,18 +1711,18 @@ packages:
       - supports-color
     dev: false
 
-  registry.npmmirror.com/koishi/4.3.1:
-    resolution: {integrity: sha512-7+DAGta5jwXr/WvJIKUJjzMI8+FlSvFB8btKKNQ3ghSvfm65Ql++4O1EfDQBqdbGzBYMHg5CBkjEj/43TjObMA==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/koishi/-/koishi-4.3.1.tgz}
+  registry.npmmirror.com/koishi/4.3.2:
+    resolution: {integrity: sha512-RC6wb6a+PS6Es3gEhbmyQ7Px9qXIwoGtIIuJYghaTOFKGcU301x/jYXjOGY0RTKgOoLPIRd9dgdk158TB33ZPg==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/koishi/-/koishi-4.3.2.tgz}
     name: koishi
-    version: 4.3.1
+    version: 4.3.2
     engines: {node: '>=12.0.0'}
     dependencies:
       '@koa/router': registry.npmmirror.com/@koa/router/10.1.1
-      '@koishijs/core': registry.npmmirror.com/@koishijs/core/4.3.1
+      '@koishijs/core': registry.npmmirror.com/@koishijs/core/4.3.2
       '@koishijs/utils': registry.npmmirror.com/@koishijs/utils/5.1.2
       '@types/koa': registry.npmmirror.com/@types/koa/2.13.4
       '@types/koa__router': registry.npmmirror.com/@types/koa__router/8.0.11
-      '@types/ws': registry.npmmirror.com/@types/ws/8.5.0
+      '@types/ws': registry.npmmirror.com/@types/ws/8.5.1
       axios: registry.npmmirror.com/axios/0.24.0
       file-type: registry.npmmirror.com/file-type/16.5.3
       koa: registry.npmmirror.com/koa/2.13.4
@@ -2323,10 +2323,10 @@ packages:
     version: 2.1.2
     dev: false
 
-  registry.npmmirror.com/schemastery/2.6.0:
-    resolution: {integrity: sha512-cjujWLn4+DJlcN9wJcmLdeV1mMuADBTSZPVuEDB4ummYP3TMcVwmFiNL+2wevaMmg6SZr4aOk9YOgM8zIjao9g==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/schemastery/-/schemastery-2.6.0.tgz}
+  registry.npmmirror.com/schemastery/3.0.0:
+    resolution: {integrity: sha512-0aWxVyVoa5XMxfsFqHdyj2QZCiUgImzcsCEdseALm57JlmBktu92EvTXm1AebD21q/fcSi+M7BGclDQyfMjQzg==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/schemastery/-/schemastery-3.0.0.tgz}
     name: schemastery
-    version: 2.6.0
+    version: 3.0.0
     dev: false
 
   registry.npmmirror.com/semver-diff/3.1.1:
@@ -2645,7 +2645,7 @@ packages:
       nopt: registry.npmmirror.com/nopt/1.0.10
     dev: true
 
-  registry.npmmirror.com/ts-node/10.5.0_ad16171857a0edcfc445c7bfcf336eb6:
+  registry.npmmirror.com/ts-node/10.5.0_f94da96e4d78a751cdd66b59796b8fdd:
     resolution: {integrity: sha512-6kEJKwVxAJ35W4akuiysfKwKmjkbYxwQMTBaAxo9KKAx/Yd26mPUyhGz3ji+EsJoAgrLqVsYHNuuYwQe22lbtw==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/ts-node/-/ts-node-10.5.0.tgz}
     id: registry.npmmirror.com/ts-node/10.5.0
     name: ts-node
@@ -2667,7 +2667,7 @@ packages:
       '@tsconfig/node12': registry.npmmirror.com/@tsconfig/node12/1.0.9
       '@tsconfig/node14': registry.npmmirror.com/@tsconfig/node14/1.0.1
       '@tsconfig/node16': registry.npmmirror.com/@tsconfig/node16/1.0.2
-      '@types/node': registry.npmmirror.com/@types/node/16.11.25
+      '@types/node': registry.npmmirror.com/@types/node/16.11.26
       acorn: registry.npmmirror.com/acorn/8.7.0
       acorn-walk: registry.npmmirror.com/acorn-walk/8.2.0
       arg: registry.npmmirror.com/arg/4.1.3
@@ -2814,10 +2814,10 @@ packages:
     engines: {node: '>= 0.8'}
     dev: false
 
-  registry.npmmirror.com/vm2/3.9.8:
-    resolution: {integrity: sha512-/1PYg/BwdKzMPo8maOZ0heT7DLI0DAFTm7YQaz/Lim9oIaFZsJs3EdtalvXuBfZwczNwsYhju75NW4d6E+4q+w==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/vm2/-/vm2-3.9.8.tgz}
+  registry.npmmirror.com/vm2/3.9.9:
+    resolution: {integrity: sha512-xwTm7NLh/uOjARRBs8/95H0e8fT3Ukw5D/JJWhxMbhKzNh1Nu981jQKvkep9iKYNxzlVrdzD0mlBGkDKZWprlw==, registry: https://r.npm.taobao.org/, tarball: https://registry.npmmirror.com/vm2/-/vm2-3.9.9.tgz}
     name: vm2
-    version: 3.9.8
+    version: 3.9.9
     engines: {node: '>=6.0'}
     hasBin: true
     dependencies:
