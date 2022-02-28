@@ -26,10 +26,7 @@ export function apply(ctx: Context) {
     {
       onebot: 'string',
       guildId: 'string',
-      joinedAt: {
-        type: 'timestamp',
-        initial: new Date(),
-      },
+      joinedAt: 'timestamp',
       quittedAt: {
         type: 'timestamp',
         // nullable: true,
