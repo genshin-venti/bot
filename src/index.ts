@@ -4,12 +4,14 @@ import SQLiteDatabase from '@koishijs/plugin-database-sqlite'
 import * as respondent from '@koishijs/plugin-respondent'
 import * as ventiVoiceOvers from '@fenglingbot/plugin-venti-voices-chinese'
 import * as waitingForVenti from '@fenglingbot/plugin-waiting-for-venti'
+import DriftBottlePlugin from '@fenglingbot/plugin-drift-bottle'
 import { join } from 'path'
 import TestPlugin from './test'
 
 const app = new App()
 
-Logger.levels.base = process.env.NODE_ENV === 'debug' ? Logger.DEBUG : Logger.INFO
+Logger.levels.base =
+  process.env.NODE_ENV === 'debug' ? Logger.DEBUG : Logger.INFO
 
 app.options.prefix = '#'
 app.options.nickname = ['温迪', 'Venti', 'venti']
@@ -21,11 +23,14 @@ app
     endpoint: 'ws://127.0.0.1:6700',
   })
   .plugin(SQLiteDatabase, {
-    path: join(process.cwd(), 'database.db')
+    path: join(process.cwd(), 'database.db'),
   })
-  .plugin(TestPlugin)
+  // .plugin(TestPlugin)
   .plugin(ventiVoiceOvers)
   .plugin(waitingForVenti)
+  .plugin(DriftBottlePlugin, {
+    prefix: '#',
+  })
   .plugin(respondent, {
     rules: [
       {
