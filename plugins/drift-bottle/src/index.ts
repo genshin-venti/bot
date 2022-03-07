@@ -39,26 +39,21 @@ export default class DriftBottlePlugin {
   readonly #db = () => this.ctx.database.sqlite.db
   readonly #regs = () => {
     return {
-      fish: new RegExp(`^((?:${this.#prefix})${this.#fishBottleKey})\\s*$`),
-      // image: /\[CQ:image,file=([a-z0-9]+\.image),url=(https?:\/\/.*),subType=(?:[0-9])\]/,
-      // _image: /\[CQ:image,.*\]/,
-      // _quote: /\[CQ:quote,.*\]/,
-      quotedBottle: new RegExp(
-        `^\\[CQ:quote,id=(-?[0-9]+)\\]\\[CQ:at,id=([0-9]+)\\]\\s*((?:${
-          this.#prefix
-        })${this.#throwBottleKey})\\s*$`
+      fishBottle: new RegExp(
+        `^((?:${this.#prefix})${this.#fishBottleKey})\\s*$`
       ),
-      normalBottle: new RegExp(
-        `^(?:${this.#prefix})${this.#throwBottleKey}\\s*((?:.|\\n)*)$`
+      throwBottle: new RegExp(
+        `^\\s*(?:${this.#prefix})${this.#throwBottleKey}(（|\\()?\\s*((?:.|\\n)*)$`
       ),
     }
   }
   readonly #templates = {
     ok: '好啦',
+    privateOk: '好啦，群内瓶+1',
     noBottle: '还没有瓶子可捞哦',
     notInGroup: '请在群组内使用该功能',
     messageNotFound:
-      '瓶子似乎被可莉炸飞了...请把瓶子内容重新发一遍再尝试扔瓶子哦',
+      '瓶子似乎被可莉炸飞了...请把瓶子内容重新发一遍再尝试扔瓶子吧',
     allowEitherTextOrImage: '只能往瓶子里丢文字和图片，且不能有@好友哦',
     duplicateContent: '已经有一样的瓶子了~',
   }
@@ -109,38 +104,49 @@ export default class DriftBottlePlugin {
     if (!session.guildId) return this.#templates.notInGroup
 
     const message = session.content!
-    const { fish, normalBottle, quotedBottle } = this.#regs()
+    const { fishBottle, throwBottle } = this.#regs()
 
     const parsedMsg = segment.parse(message)
 
     try {
-      if (fish.test(message)) {
-        // 捞个瓶子
+      if (fishBottle.test(message)) {
+        // 捞瓶子
         const bottle = await this.getOneRandomly(session.guildId)
         if (!bottle) return this.#templates.noBottle
         await session.sendQueued(
           // segment('quote', { id: session.messageId }) +
           bottle.content
         )
-      } else if (normalBottle.test(message)) {
+      } else if (parsedMsg[0].type === 'text' && throwBottle.test(message)) {
         // 普通消息瓶子
-        const content = normalBottle.exec(message)![1]
+        const regexpSearchRes = throwBottle.exec(message)
+        const isPublic = !regexpSearchRes![1]
+        const content = regexpSearchRes![2]
 
         await this.#messageTypeGuard(session, content)
 
-        await this.save(content, session.userId!, session.guildId)
+        await this.save(content, session.userId!, session.guildId, isPublic)
         await session.sendQueued(
-          segment('quote', { id: session.messageId! }) + this.#templates.ok
+          segment('quote', { id: session.messageId! }) +
+            (isPublic ? this.#templates.ok : this.#templates.privateOk)
         )
-      } else if (parsedMsg[0].type === 'quote' && quotedBottle.test(message)) {
+      } else if (parsedMsg[0].type === 'quote' && throwBottle.test(parsedMsg[2].data.content)) {
         // 引用瓶子
+        const regexpSearchRes = throwBottle.exec(parsedMsg[2].data.content)
+        const isPublic = !regexpSearchRes![1]
         const quotedMsg = await this.#getMessage(session, parsedMsg[0].data.id)
 
         await this.#messageTypeGuard(session, quotedMsg.content!)
 
-        await this.save(quotedMsg.content!, session.userId!, session.guildId)
+        await this.save(
+          quotedMsg.content!,
+          session.userId!,
+          session.guildId,
+          isPublic
+        )
         await session.sendQueued(
-          segment('quote', { id: session.messageId! }) + this.#templates.ok
+          segment('quote', { id: session.messageId! }) +
+            (isPublic ? this.#templates.ok : this.#templates.privateOk)
         )
       }
     } catch (error) {
@@ -187,11 +193,17 @@ export default class DriftBottlePlugin {
     })
   }
 
-  save(content: string, userId: string, guildId: string) {
+  save(
+    content: string,
+    userId: string,
+    guildId: string,
+    isPublic: boolean = true
+  ) {
     return this.ctx.database.create(this.#tableName, {
       content,
       userId,
       guildId,
+      isPublic: isPublic ? 1 : 0,
       createdAt: new Date(),
     })
   }
