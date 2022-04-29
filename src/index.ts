@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import { App, Logger } from 'koishi'
 import onebot from '@koishijs/plugin-adapter-onebot'
 import SQLiteDatabase from '@koishijs/plugin-database-sqlite'
@@ -6,7 +7,7 @@ import * as ventiVoiceOvers from '@fenglingbot/plugin-venti-voices-chinese'
 import * as waitingForVenti from '@fenglingbot/plugin-waiting-for-venti'
 import DriftBottlePlugin from '@fenglingbot/plugin-drift-bottle'
 import { join } from 'path'
-import TestPlugin from './test'
+// import TestPlugin from './test'
 
 const app = new App()
 
@@ -20,10 +21,10 @@ app
   .plugin(onebot, {
     protocol: 'ws',
     selfId: '123456789',
-    endpoint: 'ws://127.0.0.1:6700',
+    endpoint: process.env.ONEBOT_ENDPOINT || 'ws://127.0.0.1:6700',
   })
   .plugin(SQLiteDatabase, {
-    path: join(process.cwd(), 'database.db'),
+    path: join(process.cwd(), 'db/database.db'),
   })
   // .plugin(TestPlugin)
   .plugin(ventiVoiceOvers)
