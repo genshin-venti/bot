@@ -31,23 +31,23 @@ interface Config {
 
 export default class DriftBottlePlugin {
   readonly name = 'drift-bottle'
-  readonly #tableName = 'drift_bottle'
-  readonly #logger: Logger
-  #throwBottleKey = '丢个瓶子'
-  #fishBottleKey = '捞瓶子'
-  #prefix = ''
-  readonly #db = () => this.ctx.database.sqlite.db
-  readonly #regs = () => {
+  private readonly tableName = 'drift_bottle'
+  private readonly logger: Logger
+  private throwBottleKey = '丢个瓶子'
+  private fishBottleKey = '捞瓶子'
+  private prefix = ''
+  private readonly db = () => this.ctx.database.sqlite.db
+  private readonly regs = () => {
     return {
       fishBottle: new RegExp(
-        `^((?:${this.#prefix})${this.#fishBottleKey})\\s*$`
+        `^((?:${this.prefix})${this.fishBottleKey})\\s*$`
       ),
       throwBottle: new RegExp(
-        `^\\s*(?:${this.#prefix})${this.#throwBottleKey}(（|\\()?\\s*((?:.|\\n)*)$`
+        `^\\s*(?:${this.prefix})${this.throwBottleKey}(（|\\()?\\s*((?:.|\\n)*)$`
       ),
     }
   }
-  readonly #templates = {
+  private readonly templates = {
     ok: '好啦',
     privateOk: '好啦，群内瓶+1',
     noBottle: '还没有瓶子可捞哦',
@@ -66,14 +66,14 @@ export default class DriftBottlePlugin {
       prefix: '',
     }
   ) {
-    this.#logger = ctx.logger(this.name)
+    this.logger = ctx.logger(this.name)
 
-    config.throwBottleKey && (this.#throwBottleKey = config.throwBottleKey)
-    config.fishBottleKey && (this.#fishBottleKey = config.fishBottleKey)
-    config.prefix && (this.#prefix = config.prefix)
+    config.throwBottleKey && (this.throwBottleKey = config.throwBottleKey)
+    config.fishBottleKey && (this.fishBottleKey = config.fishBottleKey)
+    config.prefix && (this.prefix = config.prefix)
 
     ctx.model.extend(
-      this.#tableName,
+      this.tableName,
       {
         id: 'unsigned',
         userId: 'string',
@@ -101,10 +101,10 @@ export default class DriftBottlePlugin {
   }
 
   async callback(session: Session, next: Next) {
-    if (!session.guildId) return this.#templates.notInGroup
+    if (!session.guildId) return this.templates.notInGroup
 
     const message = session.content!
-    const { fishBottle, throwBottle } = this.#regs()
+    const { fishBottle, throwBottle } = this.regs()
 
     const parsedMsg = segment.parse(message)
 
@@ -112,7 +112,7 @@ export default class DriftBottlePlugin {
       if (fishBottle.test(message)) {
         // 捞瓶子
         const bottle = await this.getOneRandomly(session.guildId)
-        if (!bottle) return this.#templates.noBottle
+        if (!bottle) return this.templates.noBottle
         await session.sendQueued(
           // segment('quote', { id: session.messageId }) +
           bottle.content
@@ -123,20 +123,20 @@ export default class DriftBottlePlugin {
         const isPublic = !regexpSearchRes![1]
         const content = regexpSearchRes![2]
 
-        await this.#messageTypeGuard(session, content)
+        await this.messageTypeGuard(session, content)
 
         await this.save(content, session.userId!, session.guildId, isPublic)
         await session.sendQueued(
           segment('quote', { id: session.messageId! }) +
-            (isPublic ? this.#templates.ok : this.#templates.privateOk)
+            (isPublic ? this.templates.ok : this.templates.privateOk)
         )
       } else if (parsedMsg[0].type === 'quote' && throwBottle.test(parsedMsg[2].data.content)) {
         // 引用瓶子
         const regexpSearchRes = throwBottle.exec(parsedMsg[2].data.content)
         const isPublic = !regexpSearchRes![1]
-        const quotedMsg = await this.#getMessage(session, parsedMsg[0].data.id)
+        const quotedMsg = await this.getMessage(session, parsedMsg[0].data.id)
 
-        await this.#messageTypeGuard(session, quotedMsg.content!)
+        await this.messageTypeGuard(session, quotedMsg.content!)
 
         await this.save(
           quotedMsg.content!,
@@ -146,7 +146,7 @@ export default class DriftBottlePlugin {
         )
         await session.sendQueued(
           segment('quote', { id: session.messageId! }) +
-            (isPublic ? this.#templates.ok : this.#templates.privateOk)
+            (isPublic ? this.templates.ok : this.templates.privateOk)
         )
       }
     } catch (error) {
@@ -158,35 +158,35 @@ export default class DriftBottlePlugin {
         await session.sendQueued(
           segment('quote', { id: session.messageId! }) +
             // this.#templates.ok
-            this.#templates.duplicateContent
+            this.templates.duplicateContent
         )
-        this.#logger.warn(error)
+        this.logger.warn(error)
       } else {
-        this.#logger.error(error)
+        this.logger.error(error)
       }
     }
     return next()
   }
 
-  async #getMessage(session: Session, messageId: string) {
+  private async getMessage(session: Session, messageId: string) {
     try {
       const msg = await session.bot.getMessage(session.guildId!, messageId)
       return msg
     } catch (error) {
       session.sendQueued(
         segment('quote', { id: session.messageId! }) +
-          this.#templates.messageNotFound
+          this.templates.messageNotFound
       )
       throw error
     }
   }
 
-  async #messageTypeGuard(session: Session, message: string) {
+  private async messageTypeGuard(session: Session, message: string) {
     segment.parse(message).forEach(async (msg) => {
       if (msg.type !== 'text' && msg.type !== 'image') {
         await session.sendQueued(
           segment('quote', { id: session.messageId! }) +
-            this.#templates.allowEitherTextOrImage
+            this.templates.allowEitherTextOrImage
         )
         throw new Error(`Message type ${msg.type} is not allowed!`)
       }
@@ -199,7 +199,7 @@ export default class DriftBottlePlugin {
     guildId: string,
     isPublic: boolean = true
   ) {
-    return this.ctx.database.create(this.#tableName, {
+    return this.ctx.database.create(this.tableName, {
       content,
       userId,
       guildId,
@@ -209,15 +209,15 @@ export default class DriftBottlePlugin {
   }
 
   async getOneRandomly(guildId: string): Promise<DriftBottle> {
-    return this.#exec(
+    return this.exec(
       'get',
       outdent`
-      SELECT * FROM ${this.#tableName} AS t1  JOIN (
+      SELECT * FROM ${this.tableName} AS t1  JOIN (
         SELECT ROUND(
           ${Math.random()} * ((SELECT MAX(id) FROM ${
-        this.#tableName
-      })-(SELECT MIN(id) FROM ${this.#tableName}))
-          +(SELECT MIN(id) FROM ${this.#tableName})
+        this.tableName
+      })-(SELECT MIN(id) FROM ${this.tableName}))
+          +(SELECT MIN(id) FROM ${this.tableName})
         ) AS id
       ) AS t2 WHERE (
         t1.id >= t2.id
@@ -231,19 +231,19 @@ export default class DriftBottlePlugin {
   }
 
   // https://github.com/JoshuaWise/better-sqlite3/blob/HEAD/docs/api.md#class-statement
-  #exec<K extends 'get' | 'run' | 'all'>(
+  private exec<K extends 'get' | 'run' | 'all'>(
     action: K,
     sql: string,
     params: any = []
   ) {
     try {
-      const result = this.#db().prepare(sql)[action](params) as ReturnType<
+      const result = this.db().prepare(sql)[action](params) as ReturnType<
         Statement[K]
       >
-      this.#logger.debug('SQL > %c', sql)
+      this.logger.debug('SQL > %c', sql)
       return result
     } catch (e) {
-      this.#logger.warn('SQL > %c', sql)
+      this.logger.warn('SQL > %c', sql)
       throw e
     }
   }
