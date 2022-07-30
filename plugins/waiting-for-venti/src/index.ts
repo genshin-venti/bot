@@ -17,7 +17,7 @@ export interface VentiWaitingList {
   onebot: string
   guildId: string
   joinedAt: Date
-  quittedAt: Date // TODO koishi暂时还不支持判断 IS NULL`，支持后可将此设为nullable
+  quittedAt: Date
 }
 
 export function apply(ctx: Context) {
@@ -29,7 +29,6 @@ export function apply(ctx: Context) {
       joinedAt: 'timestamp',
       quittedAt: {
         type: 'timestamp',
-        // nullable: true,
         nullable: false,
         initial: new Date(0),
       },
