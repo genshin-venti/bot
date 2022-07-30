@@ -17,31 +17,30 @@ Logger.levels.base =
 app.options.prefix = '#'
 app.options.nickname = ['温迪', 'Venti', 'venti']
 
-app
-  .plugin(onebot, {
-    protocol: 'ws',
-    selfId: '123456789',
-    endpoint: process.env.ONEBOT_ENDPOINT || 'ws://127.0.0.1:6700',
-  })
-  .plugin(SQLiteDatabase, {
-    path: join(process.cwd(), 'db/database.db'),
-  })
-  // .plugin(TestPlugin)
-  .plugin(ventiVoiceOvers)
-  .plugin(waitingForVenti)
-  .plugin(DriftBottlePlugin, {
-    prefix: '#',
-  })
-  .plugin(respondent, {
-    rules: [
-      {
-        match: '欸嘿',
-        reply: '欸嘿',
-      },
-      {
-        match: '诶嘿',
-        reply: '诶嘿',
-      },
-    ],
-  })
-  .start()
+app.plugin(onebot, {
+  protocol: 'ws',
+  selfId: '123456789',
+  endpoint: process.env.ONEBOT_ENDPOINT || 'ws://127.0.0.1:6700',
+})
+app.plugin(SQLiteDatabase, {
+  path: join(process.cwd(), 'db/database.db'),
+})
+// app.plugin(TestPlugin)
+app.plugin(ventiVoiceOvers)
+app.plugin(waitingForVenti)
+app.plugin(DriftBottlePlugin, {
+  prefix: '#',
+})
+app.plugin(respondent, {
+  rules: [
+    {
+      match: '欸嘿',
+      reply: '欸嘿',
+    },
+    {
+      match: '诶嘿',
+      reply: '诶嘿',
+    },
+  ],
+})
+app.start()

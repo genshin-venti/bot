@@ -1,4 +1,4 @@
-import { Bot, Context } from 'koishi'
+import { $, Bot, Context } from 'koishi'
 
 export const name = 'waiting-for-venti'
 const tableName = 'venti_waiting_list'
@@ -192,50 +192,36 @@ class WaitingListUtils {
   }
 
   static async getList(ctx: Context, guildId: string) {
-    return ctx.database.get(
+    return ctx.database
+    .select(
       tableName,
-      {
-        $and: [
-          {
-            $or: [
-              {
-                quittedAt: new Date(0), // TODO 判断是否为默认值，由于koishi暂不支持判断`IS NULL`，因此只能用0
-              },
-              {
-                $expr: {
-                  $gt: [{ $: 'joinedAt' }, { $: 'quittedAt' }],
-                },
-              },
-            ],
-          },
-          { guildId },
-        ],
-      }
+      (row) =>
+        $.and(
+          $.or(
+            $.eq(row.quittedAt, new Date(0)),
+            $.gt(row.joinedAt as any, row.quittedAt as any) // TODO remove `as any` after koishi fixing Date type support
+          ),
+          $.eq(row.guildId, guildId)
+        )
     )
+    .execute()
   }
 
   static async countWaiting(ctx: Context, guildId: string) {
-    return ctx.database.eval(
-      tableName,
-      { $count: 'onebot' },
-      {
-        $and: [
-          {
-            $or: [
-              {
-                quittedAt: new Date(0), // TODO 判断是否为默认值，由于koishi暂不支持判断`IS NULL`，因此只能用0
-              },
-              {
-                $expr: {
-                  $gt: [{ $: 'joinedAt' }, { $: 'quittedAt' }],
-                },
-              },
-            ],
-          },
-          { guildId },
-        ],
-      }
-    )
+    return ctx.database
+      .select(
+        tableName,
+        (row) =>
+          $.and(
+            $.or(
+              $.eq(row.quittedAt, new Date(0)),
+              $.gt(row.joinedAt as any, row.quittedAt as any) // TODO remove `as any` after koishi fixing Date type support
+            ),
+            $.eq(row.guildId, guildId)
+          )
+      )
+      .evaluate((row) => $.count(row.onebot))
+      .execute()
   }
 
   /**

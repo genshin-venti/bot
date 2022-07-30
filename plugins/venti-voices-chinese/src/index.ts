@@ -61,7 +61,7 @@ export function apply(ctx: Context) {
     return next()
   })
 
-  ctx.on('group-member-added', (session) => {
+  ctx.on('guild-member-added', (session) => {
     const welcomeVoice = findVoicesByKeys(['初次见面'])
     session.sendQueued(
       segment('audio', { file: getFileUrl(welcomeVoice[0].audio) })

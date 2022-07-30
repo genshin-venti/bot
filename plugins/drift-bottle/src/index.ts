@@ -1,4 +1,4 @@
-import SQLiteDatabase from '@koishijs/plugin-database-sqlite'
+import SQLiteDatabase from '@koishijs/plugin-database-sqlite/lib/database'
 import { Statement, SqliteError } from 'better-sqlite3'
 import { Context, Logger, Next, segment, Session } from 'koishi'
 import outdent from 'outdent'

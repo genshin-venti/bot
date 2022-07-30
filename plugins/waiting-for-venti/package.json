@@ -6,7 +6,7 @@
     "lodash": "^4.17.21"
   },
   "peerDependencies": {
-    "koishi": "^4.3.2",
-    "@koishijs/plugin-adapter-onebot": "^4.1.3"
+    "koishi": "^4.7.6",
+    "@koishijs/plugin-adapter-onebot": "^4.2.7"
   }
 }
